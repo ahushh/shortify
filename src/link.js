@@ -17,7 +17,7 @@ class Link {
     return this;
   }
   _makeLink(req, id) {
-    return `${CONFIG.PROTO || req.protocol}://${CONFIG.HOST || req.get('host')}/${id}`;
+    return `${CONFIG.BASE_URL || (req.protocol+'://'+req.get('host'))}/${id}`;
   }
   save(req) {
     return new Promise((resolve, reject) => {

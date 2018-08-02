@@ -1,4 +1,4 @@
-FROM node:10-stretch
+FROM node:10-alpine
 
 COPY ./package.json ./
 COPY ./package-lock.json ./
