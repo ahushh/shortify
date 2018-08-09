@@ -1,10 +1,7 @@
 FROM node:10-alpine
+WORKDIR /opt/shortify
 
-COPY ./package.json ./
-COPY ./package-lock.json ./
-
+COPY ./ ./
 RUN npm ci || npm install
 
-COPY . ./
-
-CMD npm run setup && npm start
+CMD ["/bin/sh", "-c", "npm run setup && npm start"]
