@@ -3,7 +3,7 @@ const router = express.Router();
 const validate = require('validate.js');
 const Link = require('../src/link');
 
-router.post('/', function(req, res, next) {
+router.post('/r', function(req, res, next) {
   const { url } = req.body;
   const error = validate.single(url, { url: true });
   if (error) {
@@ -25,11 +25,11 @@ router.post('/', function(req, res, next) {
   });
 });
 
-router.get('/', (req, res) => {
+router.get('/r', (req, res) => {
   res.status(204).send();
 });
 
-router.get('/:short', (req, res) => {
+router.get('/r/:short', (req, res) => {
   const short = req.params.short;
   Link.get(short).then(result => {
     if (result) {
